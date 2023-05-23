@@ -15,10 +15,13 @@ def Main():
             randomBinary += str(bit)
         return randomBinary
         #return String
+        #DONE
         
     def createRandomDecimal():
         randomBinary = random.randint(0,255)
         return randomBinary
+        #returns int
+        #DONE
     
     def translateDecimal(decimal):
         binary = ''
@@ -27,9 +30,10 @@ def Main():
         binary += str(decimal%2)
         return binary
         #returns String        
+        #DONE
             
     
-    options = ['first', 'f', 'second', 's', 'e']
+    options = ['first', 'f', 'second', 's']
     print(text.welcomeScreen[0])
     table = [["Do you want to convert binary to decimal?", "Enter 'first' or 'f'"], ["Or do you want to convert Decimal to Binary?", "Enter 'second' or 's'"]]
     print(tabulate(table))
@@ -48,6 +52,8 @@ def Main():
         init = input("enter your choice \n")
         if init in options:
             playGame(init)
+        if init == 'e':
+            exit()
         else:
             print('not option please try again')
         
