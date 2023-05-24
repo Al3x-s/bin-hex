@@ -9,7 +9,7 @@ from tabulate import tabulate
 #create a random number 0-255
 def Main():
     
-    
+    #fox the follow 2 functions
     def createRandomBinary():
         randomBinary = ''
         for i in range(8):
@@ -48,6 +48,7 @@ def Main():
             x += (2 ** start) * int(binaryNum[i])
             start -= 1
         return x
+        #rename this
     
     
     def translateDecimal(decimal):
@@ -60,6 +61,10 @@ def Main():
         #returns String        
         #DONE
          
+        
+        #create new variable names
+        
+        
     ################################################################
     #try to create a try function
     def tryBinaryToDecimal(currentBinary, userInput, lives):
