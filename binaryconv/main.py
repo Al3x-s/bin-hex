@@ -39,7 +39,7 @@ def Main():
 
     #make sure to take a string in the argument
     def binaryToDecimal(binary_num):
-        tanslated_binary = 0
+        translated_binary = 0
         #binaryNum = binaryNum[::-1]
         start = 7
         for i in range(len(binary_num)):
