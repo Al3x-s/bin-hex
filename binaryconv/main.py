@@ -9,7 +9,6 @@ from tabulate import tabulate
 #create a random number 0-255
 def Main():
     
-    
     def createRandomBinary():
         random_binary = ''
         for i in range(8):
@@ -24,7 +23,6 @@ def Main():
         return random_decimal
         #returns int
         #DONE
-        
         
     #create function to make an 8 digit binary given the translate decimal function
     def fixBinary(given_num):
@@ -41,7 +39,7 @@ def Main():
 
     #make sure to take a string in the argument
     def binaryToDecimal(binary_num):
-        tanslates_binary = 0
+        tanslated_binary = 0
         #binaryNum = binaryNum[::-1]
         start = 7
         for i in range(len(binary_num)):
@@ -69,6 +67,7 @@ def Main():
         else:
             print("not quite right")       
             lives -= 1
+        return lives
              
         
 
@@ -109,10 +108,21 @@ def Main():
         
         if start_option in ["first" ,'f']:
             new_game_binary_num = createRandomBinary()
-            printLives()
             print("the given binary = " + str(new_game_binary_num))
-            user_attempt = input("guess??")
-            
+            #user_attempt = input("guess??")
+            # set a lives value == to the function that checks the user input the functions 
+            #always returned the value but they were never saved
+            while True:
+                user_attempt = input("number within 0-255")
+                if user_attempt.isdigit():
+                    if 0<= int(user_attempt) <=255:
+                        print("exception works")
+                        break
+                    else:
+                        print("number out of range")
+                else:
+                    print("that isnt a number!")
+            tryBinaryToDecimal(new_game_binary_num, user_attempt, lives)
         else:
             printLives()
             print("the given decimal = " + str(createRandomDecimal()))
