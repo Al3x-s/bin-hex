@@ -21,6 +21,17 @@ def fixBinary(givenNum):
     if len(givenNum) > 8:
         givenNum = givenNum[-8:]
         return(givenNum)
-    
-result = DecimalToBinary(255)
-print(fixBinary(result))
+
+
+#make sure to take a string in the argument
+def binaryToDecimal(binaryNum):
+    x = 0
+    #binaryNum = binaryNum[::-1]
+    start = 7
+    for i in range(len(binaryNum)):
+        x += (2 ** start) * int(binaryNum[i])
+        start -= 1
+    return x
+        
+for i in range(24,32):
+    print(DecimalToBinary(num=i))
