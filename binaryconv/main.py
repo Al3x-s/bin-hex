@@ -11,60 +11,60 @@ def Main():
     
     
     def createRandomBinary():
-        randomBinary = ''
+        random_binary = ''
         for i in range(8):
             bit = random.randint(0,1)
-            randomBinary += str(bit)
-        return randomBinary
+            random_binary += str(bit)
+        return random_binary
         #return String
         #DONE
         
     def createRandomDecimal():
-        randomBinary = random.randint(0,255)
-        return randomBinary
+        random_decimal = random.randint(0,255)
+        return random_decimal
         #returns int
         #DONE
         
         
     #create function to make an 8 digit binary given the translate decimal function
-    def fixBinary(givenNum):
-        if len(givenNum) < 8: 
-            difference = 8 - len(givenNum)
+    def fixBinary(given_num):
+        if len(given_num) < 8: 
+            difference = 8 - len(given_num)
             for i in range(difference):
-                givenNum = ''.join(('0',givenNum))
-            return(givenNum)
-        if len(givenNum) > 8:
-            givenNum = givenNum[-8:]
-            return(givenNum)
+                given_num = ''.join(('0',given_num))
+            return(given_num)
+        if len(given_num) > 8:
+            given_num = given_num[-8:]
+            return(given_num)
         #returns String
         #done
 
     #make sure to take a string in the argument
-    def binaryToDecimal(binaryNum):
-        x = 0
+    def binaryToDecimal(binary_num):
+        tanslates_binary = 0
         #binaryNum = binaryNum[::-1]
         start = 7
-        for i in range(len(binaryNum)):
-            x += (2 ** start) * int(binaryNum[i])
+        for i in range(len(binary_num)):
+            translated_binary += (2 ** start) * int(binary_num[i])
             start -= 1
-        return x
+        return translated_binary
     
     
     def translateDecimal(decimal):
-        binary = ''
+        translated_decimal = ''
         if decimal >= 1:
-            binary = (decimal // 2)
-        binary += str(decimal%2)
-        return binary
+            translated_decimal = (decimal // 2)
+        translated_decimal += str(decimal%2)
+        return translated_decimal
         #fix variable names
         #returns String        
         #DONE
          
     ################################################################
     #try to create a try function
-    def tryBinaryToDecimal(currentBinary, userInput, lives):
-        correctAnswer = binaryToDecimal(currentBinary)
-        if currentBinary == userInput:
+    def tryBinaryToDecimal(current_binary, user_input, lives):
+        correct_answer = binaryToDecimal(current_binary)
+        if current_binary == user_input:
             print("correct do you want to try again")
         else:
             print("not quite right")       
@@ -83,7 +83,7 @@ def Main():
     
     options = ['first', 'f', 'second', 's']
     
-    tableRules = [["Do you want to convert binary to decimal?", "Enter 'first' or 'f'"], ["Or do you want to convert Decimal to Binary?", "Enter 'second' or 's'"]]
+    table_rules = [["Do you want to convert binary to decimal?", "Enter 'first' or 'f'"], ["Or do you want to convert Decimal to Binary?", "Enter 'second' or 's'"]]
     
     information = [
         ["1", "You have 2 lives"],
@@ -97,21 +97,21 @@ def Main():
     formatted_table = tabulate([items], tablefmt="fancy_grid")
     
     print(formatted_table)
-    print(tabulate(tableRules))
+    print(tabulate(table_rules))
     print("To exit press 'e'\n")
     
     ################################################################
     
-    def playGame(startOption):
+    def playGame(start_option):
         lives = 2
         def printLives():
             print("lives " + str(lives))
         
-        if startOption in ["first" ,'f']:
-            newGameBinaryNum = createRandomBinary()
+        if start_option in ["first" ,'f']:
+            new_game_binary_num = createRandomBinary()
             printLives()
-            print("the given binary = " + str(newGameBinaryNum))
-            userAttempt = input("guess??")
+            print("the given binary = " + str(new_game_binary_num))
+            user_attempt = input("guess??")
             
         else:
             printLives()

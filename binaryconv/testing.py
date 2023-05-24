@@ -33,15 +33,5 @@ def binaryToDecimal(binaryNum):
         start -= 1
     return x
         
-xx = binaryToDecimal('10110101')
-print(xx)
-
-
-num = 0
-if num not in range(256):
-    print("this doesnt work")
-    
-x = '123'
-x = int(x)
-print(x)
-print(type(x))
+for i in range(24,32):
+    print(DecimalToBinary(num=i))
