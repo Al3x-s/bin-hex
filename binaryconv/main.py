@@ -75,8 +75,20 @@ def Main():
     ################################################################
     #try to create a try function
     #def tryDecimalToBinary()     
-
     
+    #create a checklives function
+    def checkDead(given_lives):
+        if given_lives == 0:
+            return True
+
+        if given_lives > 0:
+            print("You are still in the game do you want to keep playing ")
+            try_again = input('y for yes and n for no...')
+            if try_again in ['n', 'no']:
+                return True
+            if try_again in ['y', 'yes']:
+                print("player still has a chance")
+                return False 
     
     ################################################################
     
@@ -109,23 +121,36 @@ def Main():
         if start_option in ["first" ,'f']:
             new_game_binary_num = createRandomBinary()
             print("the given binary = " + str(new_game_binary_num))
+            print("you have " + str(lives) + " left")
             #user_attempt = input("guess??")
             # set a lives value == to the function that checks the user input the functions 
             #always returned the value but they were never saved
             while True:
-                user_attempt = input("number within 0-255")
+                
+                
+                user_attempt = input("number within 0-225        ")
                 if user_attempt.isdigit():
                     if 0<= int(user_attempt) <=255:
-                        print("exception works")
-                        break
+                        print("Try game logic here")
+                        lives = tryBinaryToDecimal(new_game_binary_num, user_attempt, lives)
+                        print("you have " + str(lives) + " life left")
+                        
                     else:
                         print("number out of range")
                 else:
                     print("that isnt a number!")
-            tryBinaryToDecimal(new_game_binary_num, user_attempt, lives)
+                    
+                if checkDead(lives) == True:
+                    break
+                else:
+                    print("game should run again ")
+                    print("try again ...... ")
+            #tryBinaryToDecimal(new_game_binary_num, user_attempt, lives)
         else:
-            printLives()
+            new_game_random_decimal = createRandomDecimal()
+            print("The given decimal is ... " + str(new_game_random_decimal)) 
             print("the given decimal = " + str(createRandomDecimal()))
+            print("you have " + str(lives) + " left")
             
         exit()
     
